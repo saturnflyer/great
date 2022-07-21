@@ -1,4 +1,5 @@
 require "great/version"
+require "delegate"
 require "sentimental"
 
 module Great

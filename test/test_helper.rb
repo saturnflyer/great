@@ -1,4 +1,8 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'great'
+require 'simplecov'
 
+SimpleCov.start do
+  add_filter "great/version"
+end
+
+require 'great'
 require 'minitest/autorun'

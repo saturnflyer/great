@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'ostruct'
 
 class GreatTest < Minitest::Test
   include Great
@@ -9,7 +8,7 @@ class GreatTest < Minitest::Test
   end
 
   def text_matcher(text, suffix_regexp)
-    matcher = Regexp.new(Regexp.quote(text) + '\s+(' + suffix_regexp.source.gsub('\\','') + ')', Regexp::IGNORECASE)
+    Regexp.new(Regexp.quote(text) + '\s+(' + suffix_regexp.source.gsub('\\','') + ')', Regexp::IGNORECASE)
   end
 
   def processor(kind)
