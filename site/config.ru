@@ -1,5 +1,7 @@
 require 'json'
 require 'rack/app'
+$:.unshift File.expand_path(__dir__ + '/../lib')
+
 require 'great'
 
 require 'erb'
@@ -42,7 +44,7 @@ class GreatAgain < Rack::App
   end
 
   get '/validated' do
-    @great_text = Great(validated_params['words'])
+    @great_text = Great(params['words'])
     @form = File.open('public/form.html'){|file| file.read }
     Page.new('result.erb', binding).to_s
   end

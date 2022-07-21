@@ -33,7 +33,7 @@ module Great
       analyzer.threshold = args.fetch(:threshold){ 0.1 }
       analyzer.load_defaults
       analyzer.load_senti_file(args.fetch(:sentiment_file){ __dir__ + '/great/sentiments.txt' })
-      unless text.end_with?('.')
+      unless text.end_with?('.','!','?')
         text = text + '.'
       end
       @registrations.fetch(analyzer.sentiment(Punchline.new(text))){ self }.new(text)
